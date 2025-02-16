@@ -40,6 +40,16 @@ app.post('/register', async (req, res) => {
   }
 });
 
+app.get('/test-db', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT NOW()');
+    res.json({ message: 'DB connected!', time: result.rows[0] });
+  } catch (error) {
+    console.error('Database connection error:', error);
+    res.status(500).send('Database connection error');
+  }
+});
+
 // Start server
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
