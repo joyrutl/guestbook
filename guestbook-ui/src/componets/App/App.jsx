@@ -1,12 +1,17 @@
 import Register from "../Register/Register";
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 
 function App() {
 
   return (
     <>
-      <Register/>
+    <BrowserRouter>
+    <Routes>
+    <Route path="/" element={<Register />} />
+      </Routes>
+      </BrowserRouter>
+      
     </>
   );
 }
